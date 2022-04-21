@@ -138,9 +138,10 @@ section{
 .hobbies ul li ul {
     padding-left:10px;
     font-size:14px;
-    max-height:0;
+    max-height:0px;
     overflow:hidden;
     transition: max-height 2s ease-in-out;
+    list-style: none;
 }
 
 .hobbies ul li ul .fa-clapperboard {
