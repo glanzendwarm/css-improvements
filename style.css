@@ -1,13 +1,20 @@
+:root {
+    --white: #DAE3E5;
+    --blue: #507DBC;
+    --black: #04080F;
+    --yellow: #DAA21B;
+}
+
 * {
     margin:0;
     padding: 0;
     box-sizing: border-box; 
     font-family: 'Poppins';
-    color:#DAE3E5;
+    color:var(--white);
 }
 
 body {
-    background: #04080F;
+    background: var(--black);
     display: flex;
     
 }
@@ -19,7 +26,7 @@ body {
     margin:auto;
     width: 100%;
     padding:20px;
-    background: #507DBC;
+    background: var(--blue);
 }
 
 header {
@@ -29,11 +36,53 @@ header {
     flex-direction: column;
 }
 
+header p {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+header input[type=checkbox] {
+    display: none;
+}
+
+header label {
+    margin:20px auto 0 auto; 
+    background:var(--white);
+    padding: 30px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    position: relative;
+    cursor: pointer;
+}
+
+header label .fa-lightbulb {
+    color:var(--blue);
+    position: absolute;
+    top:17px;
+    left:20px;
+    font-size:26px;
+}
+
+header label:hover .fa-lightbulb, header input[type=checkbox]:checked ~ label .fa-lightbulb {
+    color:var(--yellow);
+}
+
+header input[type=checkbox]:checked ~ label:hover .fa-lightbulb {
+    color:var(--blue);
+}
+
 header img {
     width:250px;
     height:250px;
     border-radius: 50%;
     margin:20px auto;
+    border: 5px solid var(--white);
+    filter: blur(5px);
+}
+
+header input[type=checkbox]:checked ~ img {
+    filter: blur(0px);
 }
 
 section{
@@ -50,6 +99,7 @@ section{
 .table__row {
     display: flex;
 }
+
 
 .table__row:not(:last-child){
     border-bottom:1px solid #ccc;
@@ -71,15 +121,42 @@ section{
 .hobbies h4 {
     margin-bottom:5px;
     padding-bottom:5px;
-    border-bottom:2px solid #DAE3E5;
+    border-bottom:2px solid var(--white);
     display: inline-block;
     text-align: center;
-    color: #DAE3E5;
+}
+
+.hobbies input[type=checkbox] {
+    display: none;
+}
+
+.hobbies label {
+    font-size:12px;
+    margin-left:2px;
 }
 
 .hobbies ul li ul {
     padding-left:10px;
     font-size:14px;
+    max-height:0;
+    overflow:hidden;
+    transition: max-height 2s ease-in-out;
+}
+
+.hobbies ul li ul .fa-clapperboard {
+    font-size: 12px;
+}
+
+.hobbies ul li input[type=checkbox]:checked ~ ul {
+    max-height: 260px;
+}
+
+.hobbies ul li .fa-chevron-down {
+    transition: transform 2s ease;
+}
+
+.hobbies ul li input[type=checkbox]:checked ~ label .fa-chevron-down {
+    transform: rotate(180deg);
 }
 
 .count-on-me {
@@ -89,7 +166,7 @@ section{
 .count-on-me h4 {
     margin-bottom:5px;
     padding-bottom:5px;
-    border-bottom:2px solid #DAE3E5;
+    border-bottom:2px solid var(--white);
     display: inline-block;
 }
 
@@ -100,7 +177,7 @@ section{
 .funny-story h4 {
     margin-bottom:5px;
     padding-bottom:5px;
-    border-bottom:2px solid #DAE3E5;
+    border-bottom:2px solid var(--white);
     display: inline-block;
 }
 
@@ -118,7 +195,7 @@ nav a {
 
 nav a:link, nav a:visited {
     text-decoration: none;
-    border-bottom:2px solid #DAE3E5;
+    border-bottom:2px solid var(--white);
     transition: border-width 0.1s ease-in-out;
 }
 
